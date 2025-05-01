@@ -51,7 +51,7 @@ function Contact() {
                 <Mail className="icon" />
                 <div>
                   <h3>Email</h3>
-                  <a href="mailto:contact@adkaari.com">contact@adkaari.com</a>
+                  <a href="mailto:kalaiarasi6067@gmail.com">kalaiarasi6067@gmail.com</a>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@ function Contact() {
                 <Phone className="icon" />
                 <div>
                   <h3>Phone</h3>
-                  <a href="tel:+919876543210">+91 98765 43210</a>
+                  <a href="tel:+919445738281">+91 94457 38281</a>
                 </div>
               </div>
             </div>
