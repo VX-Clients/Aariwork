@@ -21,15 +21,23 @@
 }
 
 .navbar-logo {
-  font-family: var(--font-heading);
-  font-size: 2.0rem;
-  font-weight: 900;
-  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 16px;
+
+}
+
+.navbar-logo img.max-h-8 {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
 }
 
 .navbar-links {
   display: flex;
   gap: 2rem;
+  margin-right: 200px;
 }
 
 .nav-link {
@@ -110,5 +118,11 @@
   .mobile-menu {
     display: block;
   }
+  
+@media (max-width: 640px) {
+  .navbar-logo img.max-h-8 {
+    max-height: 24px;
+  }
+}
 
 }

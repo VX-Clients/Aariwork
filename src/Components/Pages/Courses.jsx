@@ -54,7 +54,7 @@ const CourseCard = ({ title, description, learningPoints, pricing, image }) => {
           </div>
         </div>
 
-        <Link to="/contact" className="enroll-button">
+        <Link to="/pay" className="enroll-button">
           Enroll Now
         </Link>
       </div>

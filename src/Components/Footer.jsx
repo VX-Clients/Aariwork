@@ -9,7 +9,11 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-brand">
           <Link to="/" className="footer-logo">
-            ADK
+          <img
+            src="Images/logo.jpg"
+            alt="AariWork Logo"
+            className="max-h-8"
+          />
           </Link>
           <p>Empowering women through the art of Aari embroidery since 2020.</p>
           <div className="social-icons">
@@ -40,6 +44,9 @@ const Footer = () => {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
+            <li>
+              <Link to="/policy">Privacy Policy & Terms and Conditions</Link>
+            </li>
             
           </ul>
         </div>
@@ -65,7 +72,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p>
-          © {new Date().getFullYear()} ADK Aari Creation. All rights reserved.
+          © {new Date().getFullYear()}<a href="https://www.vibexio.ai/" className="link">  VibeXio.AI</a>  All rights reserved.
         </p>
       </div>
     </footer>
