@@ -1,5 +1,5 @@
 .qr-container {
-  max-width: 490px;
+  max-width: 600px;
   margin: 30px auto;
   padding: 24px;
   background: linear-gradient(145deg, #ffffff, #f8f8f8);
@@ -147,6 +147,116 @@
   color: #4caf50;
   animation: fadeIn 0.3s ease;
 }
+
+.payment-success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 20px;
+  background-color: #e0ffe0;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.payment-done-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.email-input-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.email-input-container label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.email-input {
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.email-error {
+  color: #e53935;
+  font-size: 14px;
+  margin-top: -4px;
+}
+
+.name-input-container,
+.email-input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.name-input-container label,
+.email-input-container label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.name-input,
+.email-input {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.name-input:focus,
+.email-input:focus {
+  border-color: #5c7cfa;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(92, 124, 250, 0.2);
+}
+
+.email-error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.generate-qr-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.generate-qr-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 
 /* Animation */
 @keyframes fadeIn {
