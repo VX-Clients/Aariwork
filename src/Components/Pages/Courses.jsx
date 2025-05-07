@@ -40,16 +40,16 @@ const CourseCard = ({ title, description, learningPoints, pricing, image }) => {
           </h4>
           <div className="pricing-details">
             <div className="price-row">
-              <span>With Material:</span>
-              <span className="price">₹{pricing.withMaterial}</span>
-            </div>
-            <div className="price-row">
               <span>Without Material:</span>
               <span className="price">₹{pricing.withoutMaterial}</span>
             </div>
             <div className="price-row material-cost">
               <span>Material Cost:</span>
               <span>₹{pricing.materialCost}</span>
+            </div>
+            <div className="price-row">
+              <span>With Material:</span>
+              <span className="price">₹{pricing.withMaterial}</span>
             </div>
           </div>
         </div>
@@ -175,8 +175,8 @@ const courses = [
       'Design creation and transfer'
     ],
     pricing: {
-      withMaterial: 2800,
-      withoutMaterial: 2000,
+      withMaterial: 1800,
+      withoutMaterial: 1000,
       materialCost: 1000
     },
     image: 'Images/fabric-painting.jpg'

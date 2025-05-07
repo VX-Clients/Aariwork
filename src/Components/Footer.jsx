@@ -49,7 +49,14 @@ const Footer = () => {
           <ul>
             <li>
               <MapPin className="icon" />
-              <span>Chennai, India</span>
+              <a
+                    href="https://www.google.com/maps/search/?api=1&query=940+P+Viralimalai,+Pudukkottai,+TN+621312"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-link"
+                  >
+                    940 P Viralimalai, Pudukkottai, TN 621312
+                  </a>
             </li>
             <li>
               <Mail className="icon" />

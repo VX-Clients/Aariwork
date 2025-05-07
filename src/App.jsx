@@ -7,10 +7,12 @@ import Designs from "./Components/Pages/Designs";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import ScrollToTop from "./ScrollToTop";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="app">
+      <Toaster position="top-center" reverseOrder={false} />
       <Navbar />
       <ScrollToTop />
       <main>

@@ -1,21 +1,93 @@
-import React, { useState } from 'react';
-import { MapPin, Mail, Phone, Send } from 'lucide-react';
-import '../CSS/Contact.css';
+import React, { useState } from "react";
+import { MapPin, Mail, Phone, Send } from "lucide-react";
+import "../CSS/Contact.css";
+import toast from "react-hot-toast";
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    course: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    course: "",
+    message: "",
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
+  // Validation function
+  const validateForm = () => {
+    // Check if all fields are filled
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.message ||
+      !formData.course
+    ) {
+      toast.error("All fields are required.");
+      return false;
+    }
+
+    // Email validation
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error("Please enter a valid email address.");
+      return false;
+    }
+
+    // Phone validation
+    const phoneRegex = /^(\+91[-\s]?|91[-\s]?|0)?[6-9]\d{9}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      toast.error("Please enter a valid 10-digit phone number.");
+      return false;
+    }
+
+    return true;
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (isSubmitting) return; // Prevent multiple submits
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+    const toastId = toast.loading("Sending...");
+
+    try {
+      await fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+        }),
+      });
+
+      setTimeout(() => {
+        toast.dismiss(toastId);
+        toast.success("Message sent!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          course: "",
+          message: "",
+        });
+        setIsSubmitting(false);
+      }, 500);
+      
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.dismiss(toastId);
+      toast.error("Submission failed!");
+      setIsSubmitting(false);
+    }
+  };
+
+  // Handle form field changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -43,7 +115,14 @@ function Contact() {
                 <MapPin className="icon" />
                 <div>
                   <h3>Location</h3>
-                  <p>Chennai, India</p>
+                  <a
+                    href="https://maps.app.goo.gl/qhftHfNBRGLqBPNc8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-link"
+                  >
+                    940 P Viralimalai, Pudukkottai, TN 621312
+                  </a>
                 </div>
               </div>
 
@@ -51,7 +130,7 @@ function Contact() {
                 <Mail className="icon" />
                 <div>
                   <h3>Email</h3>
-                  <a href="mailto:contact@adkaari.com">contact@adkaari.com</a>
+                  <a href="mailto:contact@adkaari.com" className="contact-link" >contact@adkaari.com </a>
                 </div>
               </div>
 
@@ -59,7 +138,7 @@ function Contact() {
                 <Phone className="icon" />
                 <div>
                   <h3>Phone</h3>
-                  <a href="tel:+919876543210">+91 98765 43210</a>
+                  <a href="tel:+919876543210" className="contact-link" >+91 98765 43210</a>
                 </div>
               </div>
             </div>
@@ -115,11 +194,11 @@ function Contact() {
                   required
                 >
                   <option value="">Select a course</option>
-                  <option value="aari">Aari Work</option>
-                  <option value="brooch">Brooch Making</option>
-                  <option value="saree">Saree Pre-Plating</option>
-                  <option value="fabric">Fabric Painting</option>
-                  <option value="bangles">Thread Bangles</option>
+                  <option value="Aari Work">Aari Work</option>
+                  <option value="Brooch Making">Brooch Making</option>
+                  <option value="Saree Pre-Plating">Saree Pre-Plating</option>
+                  <option value="Fabric Painting">Fabric Painting</option>
+                  <option value="Thread Bangles">Thread Bangles</option>
                 </select>
               </div>
 
@@ -135,9 +214,22 @@ function Contact() {
                 ></textarea>
               </div>
 
-              <button type="submit" className="submit-button">
-                <Send className="icon" />
-                Send Message
+              <button
+                type="submit"
+                className="submit-button"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Send className="icon" />
+                    Sending
+                  </>
+                ) : (
+                  <>
+                    <Send className="icon" />
+                    Send Message
+                  </>
+                )}
               </button>
             </form>
           </div>
