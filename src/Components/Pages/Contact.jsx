@@ -109,7 +109,7 @@ function Contact() {
         <div className="grid grid-2">
           {/* Contact Information */}
           <div className="contact-info">
-            <h2 className="mb-8">Get in Touch</h2>
+            <h2 className="contact-info-heading">Get in Touch</h2>
             <div className="contact-details">
               <div className="contact-item">
                 <MapPin className="icon" />
@@ -130,7 +130,7 @@ function Contact() {
                 <Mail className="icon" />
                 <div>
                   <h3>Email</h3>
-                  <a href="mailto:contact@adkaari.com" className="contact-link" >contact@adkaari.com </a>
+                  <a href="mailto:kalaiarasi6067@gmail.com" className="contact-link">kalaiarasi6067@gmail.com</a>
                 </div>
               </div>
 
@@ -138,7 +138,7 @@ function Contact() {
                 <Phone className="icon" />
                 <div>
                   <h3>Phone</h3>
-                  <a href="tel:+919876543210" className="contact-link" >+91 98765 43210</a>
+                  <a href="tel:+919445738281" className="contact-link">+91 94457 38281</a>
                 </div>
               </div>
             </div>

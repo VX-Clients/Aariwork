@@ -12,7 +12,10 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          ADK
+        <img
+            src="Images/logo.jpg"
+            alt="AariWork Logo"
+          /> ADK
         </Link>
         <div className="navbar-links">
           <Link

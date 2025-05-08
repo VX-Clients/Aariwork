@@ -13,11 +13,9 @@
     margin-bottom: 2rem;
   }
 
-  .contact-link {
-    color: var(--color-text-light);
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+  .contact-link , .contact-info-heading{
+    color: black;
+    opacity: 0.8;
   }
   
   .contact-item .icon {

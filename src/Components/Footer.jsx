@@ -9,14 +9,17 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-brand">
           <Link to="/" className="footer-logo">
-            ADK
+          <img
+            src="Images/logo.jpg"
+            alt="AariWork Logo"
+          />ADK
           </Link>
           <p>Empowering women through the art of Aari embroidery since 2020.</p>
           <div className="social-icons">
-            <a href="#" aria-label="Instagram">
+            <a href="https://www.instagram.com/aari_design_kalai.73/" aria-label="Instagram">
               <Instagram />
             </a>
-            <a href="#" aria-label="YouTube">
+            <a href="https://www.youtube.com/@kalaiarasi4291" aria-label="YouTube">
               <Youtube />
             </a>
           </div>
@@ -40,6 +43,9 @@ const Footer = () => {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
+            <li>
+              <Link to="/policy">Privacy Policy & Terms and Conditions</Link>
+            </li>
             
           </ul>
         </div>
@@ -60,11 +66,11 @@ const Footer = () => {
             </li>
             <li>
               <Mail className="icon" />
-              <a href="mailto:contact@adkaari.com">contact@adkaari.com</a>
+                <a href="mailto:kalaiarasi6067@gmail.com">kalaiarasi6067@gmail.com</a>
             </li>
             <li>
               <Phone className="icon" />
-              <a href="tel:+919876543210">+91 98765 43210</a>
+              <a href="tel:+919445738281">+91 94457 38281</a>
             </li>
           </ul>
         </div>
@@ -72,7 +78,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p>
-          © {new Date().getFullYear()} ADK Aari Creation. All rights reserved.
+          © {new Date().getFullYear()}<a href="https://www.vibexio.ai/" className="link">  VibeXio.AI</a>  All rights reserved.
         </p>
       </div>
     </footer>
