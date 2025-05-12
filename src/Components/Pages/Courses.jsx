@@ -40,15 +40,15 @@ const CourseCard = ({ title, description, learningPoints, pricing, image }) => {
           </h4>
           <div className="pricing-details">
             <div className="price-row">
-              <span>Course Fees:</span>
+              <span>Without Material:</span>
               <span className="price">₹{pricing.withoutMaterial}</span>
             </div>
-            <div className="price-row">
+            <div className="price-row material-cost">
               <span>Material Cost:</span>
-              <span className="price">₹{pricing.materialCost}</span>
+              <span>₹{pricing.materialCost}</span>
             </div>
             <div className="price-row">
-              <span>Total(With Material):</span>
+              <span>With Material:</span>
               <span className="price">₹{pricing.withMaterial}</span>
             </div>
           </div>

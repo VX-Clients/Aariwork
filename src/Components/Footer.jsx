@@ -12,8 +12,7 @@ const Footer = () => {
           <img
             src="Images/logo.jpg"
             alt="AariWork Logo"
-            className="max-h-8"
-          />
+          />ADK
           </Link>
           <p>Empowering women through the art of Aari embroidery since 2020.</p>
           <div className="social-icons">
@@ -56,7 +55,14 @@ const Footer = () => {
           <ul>
             <li>
               <MapPin className="icon" />
-              <span>940 P  viralimalai, Pudukkottai , <br/>Tamil Nadu-621312</span>
+              <a
+                    href="https://www.google.com/maps/search/?api=1&query=940+P+Viralimalai,+Pudukkottai,+TN+621312"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-link"
+                  >
+                    940 P Viralimalai, Pudukkottai, TN 621312
+                  </a>
             </li>
             <li>
               <Mail className="icon" />

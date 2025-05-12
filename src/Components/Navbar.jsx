@@ -15,8 +15,7 @@ const Navbar = () => {
         <img
             src="Images/logo.jpg"
             alt="AariWork Logo"
-            className="max-h-8"
-          />
+          /> ADK
         </Link>
         <div className="navbar-links">
           <Link

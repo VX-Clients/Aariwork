@@ -9,9 +9,12 @@ import Navbar from "./Components/Navbar";
 import ScrollToTop from "./ScrollToTop";
 import QrPayment from './Components/Pages/QrPayment';
 import PolicyPage from "./Components/Pages/PolicyPage";
+import { Toaster } from "react-hot-toast";
+
 function App() {
   return (
     <div className="app">
+      <Toaster position="top-center" reverseOrder={false} />
       <Navbar />
       <ScrollToTop />
       <main>
