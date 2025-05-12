@@ -55,7 +55,7 @@ function Contact() {
     const toastId = toast.loading("Sending...");
 
     try {
-      await fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL, {
+      await fetch("https://script.google.com/macros/s/AKfycby6zi0z5V0Hpy-h8qpbx_aEkOIGE9V-ijZx9gcLR9Lp0UeR_X0upUYl9r4oEo0WQy9hzA/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
