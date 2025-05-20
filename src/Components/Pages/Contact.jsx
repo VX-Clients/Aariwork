@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MapPin, Mail, Phone, Send } from "lucide-react";
 import "../CSS/Contact.css";
 import toast from "react-hot-toast";
@@ -12,30 +12,31 @@ function Contact() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(""); // success or error
+  const [phoneError, setPhoneError] = useState("");
+  const nameInputRef = useRef(null);
+
+  useEffect(() => {
+    nameInputRef.current?.focus();
+  }, []);
+
   // Validation function
   const validateForm = () => {
-    // Check if all fields are filled
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.message ||
-      !formData.course
-    ) {
+    const { name, email, phone, message, course } = formData;
+    if (!name || !email || !phone || !message || !course) {
       toast.error("All fields are required.");
       return false;
     }
 
-    // Email validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!emailRegex.test(formData.email)) {
+    if (!emailRegex.test(email)) {
       toast.error("Please enter a valid email address.");
       return false;
     }
 
-    // Phone validation
     const phoneRegex = /^(\+91[-\s]?|91[-\s]?|0)?[6-9]\d{9}$/;
-    if (!phoneRegex.test(formData.phone)) {
+    if (!phoneRegex.test(phone)) {
       toast.error("Please enter a valid 10-digit phone number.");
       return false;
     }
@@ -43,15 +44,34 @@ function Contact() {
     return true;
   };
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // Handle form field changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "phone") {
+      // Show warning for invalid characters
+      if (/[^0-9]/.test(value)) {
+        setPhoneError("Only digits (0–9) are allowed.");
+      } else {
+        setPhoneError("");
+      }
+
+      // Clean input
+      const numericValue = value.replace(/\D/g, "");
+      setFormData({ ...formData, phone: numericValue });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (isSubmitting) return; // Prevent multiple submits
-    if (!validateForm()) return;
+    if (isSubmitting || !validateForm()) return;
 
     setIsSubmitting(true);
+    setSubmitStatus("");
     const toastId = toast.loading("Sending...");
 
     try {
@@ -63,12 +83,18 @@ function Contact() {
         },
         body: JSON.stringify({
           ...formData,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          course: formData.course.trim(),
+          message: formData.message.trim(),
         }),
       });
 
       setTimeout(() => {
         toast.dismiss(toastId);
         toast.success("Message sent!");
+        setSubmitStatus("success");
         setFormData({
           name: "",
           email: "",
@@ -78,21 +104,13 @@ function Contact() {
         });
         setIsSubmitting(false);
       }, 500);
-      
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.dismiss(toastId);
       toast.error("Submission failed!");
+      setSubmitStatus("error");
       setIsSubmitting(false);
     }
-  };
-
-  // Handle form field changes
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
   };
 
   return (
@@ -107,7 +125,7 @@ function Contact() {
 
       <div className="container py-16">
         <div className="grid grid-2">
-          {/* Contact Information */}
+          {/* Contact Info */}
           <div className="contact-info">
             <h2 className="contact-info-heading">Get in Touch</h2>
             <div className="contact-details">
@@ -130,7 +148,9 @@ function Contact() {
                 <Mail className="icon" />
                 <div>
                   <h3>Email</h3>
-                  <a href="mailto:kalaiarasi6067@gmail.com" className="contact-link">kalaiarasi6067@gmail.com</a>
+                  <a href="mailto:kalaiarasi6067@gmail.com" className="contact-link">
+                    kalaiarasi6067@gmail.com
+                  </a>
                 </div>
               </div>
 
@@ -138,7 +158,9 @@ function Contact() {
                 <Phone className="icon" />
                 <div>
                   <h3>Phone</h3>
-                  <a href="tel:+919445738281" className="contact-link">+91 94457 38281</a>
+                  <a href="tel:+919445738281" className="contact-link">
+                    +91 94457 38281
+                  </a>
                 </div>
               </div>
             </div>
@@ -154,6 +176,7 @@ function Contact() {
                   type="text"
                   id="name"
                   name="name"
+                  ref={nameInputRef}
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -180,8 +203,12 @@ function Contact() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  maxLength={10}
                   required
                 />
+                {phoneError && <p className="error-msg">{phoneError}</p>}
               </div>
 
               <div className="form-group">
@@ -221,8 +248,8 @@ function Contact() {
               >
                 {isSubmitting ? (
                   <>
-                    <Send className="icon" />
-                    Sending
+                    <Send className="icon animate-spin" />
+                    Sending...
                   </>
                 ) : (
                   <>
