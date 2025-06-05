@@ -1,0 +1,271 @@
+.qr-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 24px;
+  background: linear-gradient(145deg, #ffffff, #f8f8f8);
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.qr-title {
+  color: #d81b60;
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.qr-select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  transition: border 0.3s ease;
+}
+
+.qr-select:focus {
+  outline: none;
+  border-color: #e91e63;
+}
+
+.qr-options {
+  background: #fff0f5;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: inset 0 0 8px rgba(255, 182, 193, 0.2);
+  text-align: left;
+}
+
+.qr-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.qr-option:hover {
+  background-color: #ffe4ec;
+}
+
+.qr-option input {
+  margin-right: 10px;
+  transform: scale(1.3);
+  accent-color: #e91e63;
+}
+
+.price {
+  color: #d81b60;
+  font-weight: 600;
+}
+
+.qr-code {
+  margin: 24px 0 16px;
+  display: flex;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.qr-details {
+  font-size: 18px;
+  color: black;
+  line-height: 1.6;
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.05);
+}
+
+.copy-img {
+  width: 20px;
+  margin-left: 7px;
+  height: 20px;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.copy-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.copy-img:hover {
+  transform: scale(1.1);
+}
+
+
+/* Enroll Button Styling */
+.enroll-btn {
+  margin-top: 20px;
+  background: linear-gradient(to right, #f06292, #ec407a);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.enroll-btn:hover {
+  background: linear-gradient(to right, #e91e63, #d81b60);
+  transform: translateY(-2px);
+}
+
+.upi-id {
+  cursor: pointer;
+  color: #d81b60;
+  transition: color 0.2s ease;
+}
+
+.upi-id:hover {
+  color: #ad1457;
+  text-decoration: underline;
+}
+
+.copy-success {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: #4caf50;
+  animation: fadeIn 0.3s ease;
+}
+
+.payment-success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 20px;
+  background-color: #e0ffe0;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.payment-done-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.email-input-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.email-input-container label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.email-input {
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.email-error {
+  color: #e53935;
+  font-size: 14px;
+  margin-top: -4px;
+}
+
+.name-input-container,
+.email-input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.name-input-container label,
+.email-input-container label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.name-input,
+.email-input {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.name-input:focus,
+.email-input:focus {
+  border-color: #5c7cfa;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(92, 124, 250, 0.2);
+}
+
+.email-error {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.generate-qr-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.generate-qr-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

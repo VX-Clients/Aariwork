@@ -41,7 +41,6 @@ a {
 }
 
 a:hover {
-  /* color: var(--color-accent-light); */
   color: rgb(173, 5, 198);
 }
 
