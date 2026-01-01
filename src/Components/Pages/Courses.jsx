@@ -1,32 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BookOpen, CheckCircle2, Sparkles } from 'lucide-react';
+import { BookOpen, CheckCircle2, Sparkles, Clock, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import '../CSS/Courses.css';
+import { COURSES_DATA, UPCOMING_COURSES } from '../../data/coursesData';
 
 // CourseCard Component
-const CourseCard = ({ title, description, learningPoints, pricing, image }) => {
+const CourseCard = ({ title, description, learningPoints, pricing, image, popular }) => {
   return (
-    <div className="course-card">
+    <div className="glass-panel course-card animate-fade-in">
+      {popular && <span className="popular-tag">Trending</span>}
+
       <div className="course-image-wrapper">
         <img src={image} alt={title} className="course-image" />
         <div className="course-overlay">
           <h3>{title}</h3>
         </div>
       </div>
-      
+
       <div className="course-details">
         <p className="course-description">{description}</p>
-        
+
         <div className="learning-points">
           <h4>
-            <BookOpen className="icon" />
-            What You'll Learn
+            <BookOpen size={18} />
+            Highlights
           </h4>
           <ul>
             {learningPoints.map((point, index) => (
               <li key={index}>
-                <CheckCircle2 className="icon success" />
+                <CheckCircle2 size={16} className="text-gradient" style={{ flexShrink: 0 }} />
                 <span>{point}</span>
               </li>
             ))}
@@ -35,27 +38,28 @@ const CourseCard = ({ title, description, learningPoints, pricing, image }) => {
 
         <div className="pricing-section">
           <h4>
-            <Sparkles className="icon" />
-            Pricing Options
+            <Sparkles size={18} />
+            Investment
           </h4>
           <div className="pricing-details">
+            {/* Show Material Cost only if relevant */}
             <div className="price-row">
-              <span>Without Material:</span>
-              <span className="price">₹{pricing.withoutMaterial}</span>
+              <span>Class Only</span>
+              <span>₹{pricing.withoutMaterial}</span>
             </div>
-            <div className="price-row material-cost">
-              <span>Material Cost:</span>
+            <div className="price-row">
+              <span>Material Kit</span>
               <span>₹{pricing.materialCost}</span>
             </div>
-            <div className="price-row">
-              <span>With Material:</span>
-              <span className="price">₹{pricing.withMaterial}</span>
+            <div className="price-row highlight">
+              <span>Full Bundle</span>
+              <span style={{ fontSize: '1.2rem' }}>₹{pricing.withMaterial}</span>
             </div>
           </div>
         </div>
 
-        <Link to="/pay" className="enroll-button">
-          Enroll Now
+        <Link to="/pay" state={{ courseTitle: title }} className="enroll-button">
+          Book Your Slot
         </Link>
       </div>
     </div>
@@ -73,6 +77,7 @@ CourseCard.propTypes = {
     materialCost: PropTypes.number.isRequired,
   }).isRequired,
   image: PropTypes.string.isRequired,
+  popular: PropTypes.bool,
 };
 
 // Courses Component
@@ -82,34 +87,35 @@ function Courses() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content animate-fadeIn">
-          <h1>Our Courses</h1>
-          <p>Transform your creativity into a successful career with our comprehensive courses</p>
+          <h1>Master the Art</h1>
+          <p>Professional courses designed to turn your creativity into a career.</p>
         </div>
       </section>
 
       {/* Courses Grid */}
-      <section className="courses-section">
-        <div className="container">
-          <div className="courses-grid">
-            {courses.map((course) => (
-              <CourseCard key={course.title} {...course} />
-            ))}
-          </div>
+      <section className="container courses-section">
+        <div className="courses-grid">
+          {COURSES_DATA.map((course, index) => (
+            <CourseCard key={course.title} {...course} style={{ animationDelay: `${index * 0.1}s` }} />
+          ))}
         </div>
       </section>
 
       {/* Upcoming Courses */}
       <section className="upcoming-courses">
         <div className="container">
-          <h2>Upcoming Courses</h2>
+          <h2 className="text-center mb-4">Coming Soon</h2>
           <div className="upcoming-grid">
-            {upcomingCourses.map((course, index) => (
-              <div key={index} className="upcoming-card">
+            {UPCOMING_COURSES.map((course, index) => (
+              <div key={index} className="glass-panel upcoming-card">
+                <div className="upcoming-date"><Calendar size={14} style={{ display: 'inline', marginRight: '5px' }} /> {course.date}</div>
                 <h3>{course.title}</h3>
                 <p>{course.description}</p>
-                <button className="notify-button">
-                  Get Notified →
-                </button>
+                <div className="mt-4">
+                  <span style={{ fontSize: '0.9rem', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <Clock size={16} /> Stay Tuned
+                  </span>
+                </div>
               </div>
             ))}
           </div>
@@ -118,99 +124,5 @@ function Courses() {
     </div>
   );
 }
-
-//  Course Data 
-const courses = [
-  {
-    title: 'Aari Work',
-    description: 'Master the art of Aari embroidery from basic to professional level.',
-    learningPoints: [
-      '120+ stitches from basic to advanced',
-      'Customizing embroidery for clients',
-      'Business insights for your Aari brand'
-    ],
-    pricing: {
-      withMaterial: 1750,
-      withoutMaterial: 250,
-      materialCost: 1500
-    },
-    image: 'Images/aari-work1.jpg'
-  },
-  {
-    title: 'Brooch Making',
-    description: 'Learn to create unique and stylish brooches for various occasions.',
-    learningPoints: [
-      'Design unique brooches for sarees & dresses',
-      'Step-by-step expert techniques',
-      'Material selection and sourcing'
-    ],
-    pricing: {
-      withMaterial: 1750,
-      withoutMaterial: 250,
-      materialCost: 1500
-    },
-    image: 'Images/brooch-making.jpg'
-  },
-  {
-    title: 'Saree Pre-Plating',
-    description: 'Perfect the art of saree pleating and create stunning drapes.',
-    learningPoints: [
-      'Perfect pleats and folding techniques',
-      'Various draping styles for occasions',
-      'Professional finishing touches'
-    ],
-    pricing: {
-      withMaterial: 600,
-      withoutMaterial: 50,
-      materialCost: 550
-    },
-    image: 'Images/saree-pre.jpeg'
-  },
-  {
-    title: 'Fabric Painting',
-    description: 'Create stunning artwork on various textile materials.',
-    learningPoints: [
-      'Different painting techniques',
-      'Color mixing and application',
-      'Design creation and transfer'
-    ],
-    pricing: {
-      withMaterial: 1500,
-      withoutMaterial: 500,
-      materialCost: 1000
-    },
-    image: 'Images/fabric-painting.jpg'
-  },
-  {
-    title: 'Thread Bangles',
-    description: 'Master the art of creating beautiful thread-wrapped bangles.',
-    learningPoints: [
-      'Traditional & modern techniques',
-      'Custom designs for occasions',
-      'Color combination mastery'
-    ],
-    pricing: {
-      withMaterial: 1750,
-      withoutMaterial: 250,
-      materialCost: 1500
-    },
-    image: 'Images/silk-thread-bangles.webp'
-  }
-];
-
-const upcomingCourses = [
-  {
-    title: 'Tracing & Sketching Tutorials',
-    description: 'Learn the fundamentals of design creation and pattern development.'
-  },
-  {
-    title: 'Canvas Tutorial',
-    description: 'Master mobile-focused design techniques for digital platforms.'
-  },
-  {
-    title: 'Jewelry & Clay Making',
-    description: 'Create stunning handcrafted jewelry and decorative items.'
-  }
-];
 
 export default Courses;
