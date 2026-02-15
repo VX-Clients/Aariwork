@@ -8,9 +8,9 @@ export const COURSES_DATA = [
             'Business insights for your Aari brand'
         ],
         pricing: {
-            withMaterial: 1350,
-            withoutMaterial: 100,
-            materialCost: 1250
+            withMaterial: 1750,
+            withoutMaterial: 250,
+            materialCost: 1500
         },
         image: 'Images/aari-work1.jpg',
         popular: true
@@ -39,9 +39,9 @@ export const COURSES_DATA = [
             'Professional finishing touches'
         ],
         pricing: {
-            withMaterial: 600,
+            withMaterial: 400,
             withoutMaterial: 50,
-            materialCost: 550
+            materialCost: 350
         },
         image: 'Images/saree-pre.jpeg'
     },
@@ -54,8 +54,8 @@ export const COURSES_DATA = [
             'Design creation and transfer'
         ],
         pricing: {
-            withMaterial: 1500,
-            withoutMaterial: 500,
+            withMaterial: 1250,
+            withoutMaterial: 250,
             materialCost: 1000
         },
         image: 'Images/fabric-painting.jpg'
@@ -69,9 +69,9 @@ export const COURSES_DATA = [
             'Color combination mastery'
         ],
         pricing: {
-            withMaterial: 1750,
-            withoutMaterial: 250,
-            materialCost: 1500
+            withMaterial: 1350,
+            withoutMaterial: 100,
+            materialCost: 1250
         },
         image: 'Images/silk-thread-bangles.webp'
     },
