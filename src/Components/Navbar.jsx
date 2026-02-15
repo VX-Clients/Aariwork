@@ -16,8 +16,8 @@ const Navbar = () => {
         <Link to="/" className="navbar-logo">
           <img
             src="Images/logo-new.png"
-            alt="Aari Design Kalai Logo"
-          /> Aari Design Kalai
+            alt="ADK Aari Creation Logo"
+          /> ADK Aari Creation
         </Link>
         <div className="navbar-links">
           <Link

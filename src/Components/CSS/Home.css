@@ -1,41 +1,55 @@
 /* Hero Section */
 .hero {
   position: relative;
-  padding: 8rem 0 6rem;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  /* background: linear-gradient(135deg, var(--color-primary-light) 0%, white 100%); */
-  background-image: url(/Images/hero-genz.png);
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/Images/hero-genz.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   margin-top: 4rem;
-  margin-bottom: 2rem;
+  padding: 2rem;
 }
 
 .hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  max-width: 900px;
+  width: 100%;
+  animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
   margin-bottom: 1.5rem;
-  /* color: var(--color-accent); */
-  color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  color: white;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .hero p {
-  font-size: 1.25rem;
-  width: 100%;
-  color: rgb(255, 255, 255);
-  /* color: var(--color-text-light); */
-  margin-bottom: 2rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  background: rgba(114, 107, 107, 0.5);
-  padding: 5px;
-  border-radius: 8px;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: white;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  opacity: 0.95;
+  font-weight: 500;
 }
 
 /* Features Section */
@@ -197,24 +211,27 @@
   .course-content {
     padding: 1rem;
   }
-}/* About Page Styles */
+}
+
+/* About Page Styles */
 .story-content {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.125rem;
-    color: var(--color-text-light);
-    margin-bottom: 2rem;
-  }
-  
-  .mission-vision {
-    padding: 6rem 0;
-    background-color: white;
-  }
-  
-  .future-initiatives {
-    padding: 6rem 0;
-    background: linear-gradient(135deg, var(--color-primary-light) 0%, white 100%);
-  }
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  color: var(--color-text-light);
+  margin-bottom: 2rem;
+}
+
+.mission-vision {
+  padding: 6rem 0;
+  background-color: white;
+}
+
+.future-initiatives {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, white 100%);
+}
+
 /* Designs.css */
 
 .design-container {

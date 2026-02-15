@@ -8,9 +8,9 @@ export const COURSES_DATA = [
             'Business insights for your Aari brand'
         ],
         pricing: {
-            withMaterial: 1750,
-            withoutMaterial: 250,
-            materialCost: 1500
+            withMaterial: 1350,
+            withoutMaterial: 100,
+            materialCost: 1250
         },
         image: 'Images/aari-work1.jpg',
         popular: true
@@ -24,9 +24,9 @@ export const COURSES_DATA = [
             'Material selection and sourcing'
         ],
         pricing: {
-            withMaterial: 1750,
-            withoutMaterial: 250,
-            materialCost: 1500
+            withMaterial: 1250,
+            withoutMaterial: 50,
+            materialCost: 1200
         },
         image: 'Images/brooch-making.jpg'
     },
@@ -74,6 +74,21 @@ export const COURSES_DATA = [
             materialCost: 1500
         },
         image: 'Images/silk-thread-bangles.webp'
+    },
+    {
+        title: 'Invisible Chain & Jewellery',
+        description: 'Master the delicate art of invisible chain work and handcrafted jewelry design.',
+        learningPoints: [
+            'Pro invisible chain techniques',
+            'Advanced jewellery assembly',
+            'Design patterns and finishing'
+        ],
+        pricing: {
+            withMaterial: 750,
+            withoutMaterial: 50,
+            materialCost: 700
+        },
+        image: 'Images/aariClass/pro/jewelleryMaking.jpg'
     }
 ];
 
@@ -86,11 +101,6 @@ export const UPCOMING_COURSES = [
     {
         title: 'Canvas Tutorial',
         description: 'Master mobile-focused design techniques for digital platforms.',
-        date: 'Coming Soon'
-    },
-    {
-        title: 'Jewelry & Clay Making',
-        description: 'Create stunning handcrafted jewelry and decorative items.',
         date: 'Coming Soon'
     }
 ];

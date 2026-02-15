@@ -18,7 +18,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
 
         const total = cartTotal.toLocaleString();
 
-        const message = `Hello Aari Design Kalai,%0A%0AI would like to place an order:%0A%0A${itemsList}%0A%0ATotal Amount: ₹${total}%0A%0APlease confirm availability and payment details.`;
+        const message = `Hello ADK Aari Creation,%0A%0AI would like to place an order:%0A%0A${itemsList}%0A%0ATotal Amount: ₹${total}%0A%0APlease confirm availability and payment details.`;
 
         // Open WhatsApp
         window.open(`https://wa.me/919445738281?text=${message}`, '_blank');

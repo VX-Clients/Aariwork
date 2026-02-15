@@ -12,9 +12,9 @@ const Footer = () => {
           <Link to="/" className="footer-logo">
             <img
               src="Images/logo-new.png"
-              alt="Aari Design Kalai Logo"
+              alt="ADK Aari Creation Logo"
             />
-            <span>Aari Design Kalai</span>
+            <span>ADK Aari Creation</span>
           </Link>
           <p>
             Elevating the art of Aari embroidery. We bridge tradition with modern creativity, empowering artisans and creators worldwide.
@@ -90,7 +90,7 @@ const Footer = () => {
       {/* Copyright */}
       <div className="footer-bottom">
         <p>
-          © {new Date().getFullYear()} Aari Design Kalai. <br className="mobile-break" />
+          © {new Date().getFullYear()} ADK Aari Creation. <br className="mobile-break" />
           Handcrafted with <Heart size={14} color="var(--color-primary)" style={{ display: 'inline', verticalAlign: 'middle' }} fill="var(--color-primary)" /> by <a href="https://www.vibexio.ai/" className="designer-link" target="_blank" rel="noopener noreferrer">VIBEXIO.AI</a>
         </p>
       </div>

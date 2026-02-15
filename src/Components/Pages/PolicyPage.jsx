@@ -14,7 +14,7 @@ const PolicyPage = () => {
         <section className="section">
           <h2 className="section-title">Privacy Policy</h2>
           <p className="text">
-            At <strong>Aari Design Kalai</strong> ("we", "our", "us"), we are committed to protecting your personal information. This policy outlines how we collect, use, and safeguard your data when you visit our website or enroll in our courses.
+            At <strong>ADK Aari Creation</strong> ("we", "our", "us"), we are committed to protecting your personal information. This policy outlines how we collect, use, and safeguard your data when you visit our website or enroll in our courses.
           </p>
 
           <h3 className="subsection-title">1. Information We Collect</h3>
@@ -87,7 +87,7 @@ const PolicyPage = () => {
           <h2 className="section-title">Contact Us</h2>
           <p className="text">If you have any questions regarding these policies, please contact us:</p>
           <div className="contact-details">
-            <p><strong>Aari Design Kalai</strong></p>
+            <p><strong>ADK Aari Creation</strong></p>
             <p>📧 Email: <a href="mailto:kalaiarasi6067@gmail.com" className="link">kalaiarasi6067@gmail.com</a></p>
             <p>📱 WhatsApp: +91 94457 38281</p>
           </div>

@@ -11,7 +11,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content animate-fadeIn">
-          <h1>Welcome to Aari Design Kalai</h1>
+          <h1>Welcome to ADK Aari Creation</h1>
           <p>Empowering women through the art of Aari embroidery</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <Link to="/courses" className="cta-button">
@@ -32,7 +32,7 @@ const Home = () => {
             <div className="story-content">
               <p className="mb-4" style={{ fontSize: '1.1rem', color: 'var(--color-text-light)' }}>
                 Hey, I'm <strong>Kalaiarasi</strong>, the founder. I started this journey from a middle-class background with just a needle and a dream.
-                Now, Aari Design Kalai is all about helping you smash those creative goals.
+                Now, ADK Aari Creation is all about helping you smash those creative goals.
               </p>
               <img src="/Images/canvas.png" alt="Sketching" style={{ width: '100%', borderRadius: '1rem', marginTop: '1rem', boxShadow: 'var(--shadow-md)' }} />
             </div>
