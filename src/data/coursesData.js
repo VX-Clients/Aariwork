@@ -88,7 +88,7 @@ export const COURSES_DATA = [
             withoutMaterial: 50,
             materialCost: 700
         },
-        image: 'Images/aariClass/pro/jewelleryMaking.jpg'
+        image: 'Images/aariClass/basic/zadosiChainStitch.jpg'
     }
 ];
 
